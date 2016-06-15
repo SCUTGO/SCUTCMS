@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <resourceExtensions />
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+      <entry name="!?*.aj" />
+    </wildcardResourcePatterns>
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="false">
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="authentication" />
+        <module name="DAO" />
+        <module name="personnel" />
+        <module name="purchased" />
+        <module name="util" />
+        <module name="web" />
+        <module name="wechat" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="authentication" target="1.5" />
+      <module name="DAO" target="1.5" />
+      <module name="personnel" target="1.5" />
+      <module name="purchased" target="1.5" />
+      <module name="SCUTCMS" target="1.5" />
+      <module name="util" target="1.5" />
+      <module name="web" target="1.5" />
+      <module name="wechat" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
