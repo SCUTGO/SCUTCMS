@@ -5,6 +5,7 @@
       <configuration>
         <datasource-map>
           <unit-entry name="com:scutcms:DAO:access:hibernate.cfg.xml" />
+          <unit-entry name="com:scutcms:DAO:resources:hibernate.cfg.xml" />
         </datasource-map>
         <naming-strategy-map />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/com/scutcms/DAO/resources/hibernate.cfg.xml" />
