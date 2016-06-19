@@ -10,6 +10,10 @@ import org.hibernate.Transaction;
  */
 public class UserMapper {
 
+    /**
+     * @param
+     * @return
+     */
     public void insertUser(User user){
         Session session=SessionFac.INSTANCE.getSession();
         Transaction transaction=session.beginTransaction();
