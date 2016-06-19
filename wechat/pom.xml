@@ -10,7 +10,23 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>wechat</artifactId>
-    <packaging>jar</packaging>
-
+    <packaging>war</packaging>
+    <name>wechat Maven Webapp</name>
+    <url>http://maven.apache.org</url>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <finalName>wechat</finalName>
+    </build>
 
 </project>
