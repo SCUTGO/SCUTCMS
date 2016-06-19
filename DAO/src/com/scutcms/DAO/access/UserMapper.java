@@ -11,8 +11,8 @@ import org.hibernate.Transaction;
 public class UserMapper {
 
     /**
-     * @param
-     * @return
+     * 向数据库中插入用户信息
+     * @param user
      */
     public void insertUser(User user){
         Session session=SessionFac.INSTANCE.getSession();
@@ -21,6 +21,11 @@ public class UserMapper {
         transaction.commit();
         session.close();
     }
+
+    /**
+     * 更改用户的信息
+     * @param user
+     */
     public void updateUser(User user){
         Session session=SessionFac.INSTANCE.getSession();
         Transaction transaction=session.beginTransaction();
@@ -34,6 +39,11 @@ public class UserMapper {
         transaction.commit();
         session.close();
     }
+
+    /**
+     * 从数据库中删除用户
+     * @param username
+     */
     public void deleteUser(String username){
         Session session=SessionFac.INSTANCE.getSession();
         Transaction transaction=session.beginTransaction();
@@ -42,6 +52,12 @@ public class UserMapper {
         transaction.commit();
         session.close();
     }
+
+    /**
+     * 查找指定用户的信息
+     * @param username
+     * @return 如果数据库中存在该用户，则返回用户的对象；否则返回null
+     */
     public User getUserByUsername(String username){
         Session session=SessionFac.INSTANCE.getSession();
         User user=(User)session.get(User.class,username);

@@ -2,7 +2,6 @@ package com.scutcms.DAO.session;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 /**
@@ -11,7 +10,7 @@ import org.hibernate.cfg.Configuration;
 public enum SessionFac {
     INSTANCE;
     public Session getSession(){
-        Configuration config = new Configuration().configure("com/scutcms/DAO/resources/hibernate.cfg.xml");
+        Configuration config = new Configuration().configure("resources/hibernate.cfg.xml");
         SessionFactory sessionFactory = config.buildSessionFactory();
         Session session = sessionFactory.openSession();
         return session;

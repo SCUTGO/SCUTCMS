@@ -33,11 +33,11 @@ public class UserMapperTest {
     public void updateUser() throws Exception {
         User user=new User();
         user.setUsername("xiaofang");
-        user.setPassword_md5("1111");
-        user.setSalt("111");
-        user.setReal_name("111");
-        user.setTelephone("11111");
-        user.setToken("1111");
+        user.setPassword_md5("2222");
+        user.setSalt("122");
+        user.setReal_name("222");
+        user.setTelephone("222");
+        user.setToken("22");
         userMapper.updateUser(user);
     }
 
