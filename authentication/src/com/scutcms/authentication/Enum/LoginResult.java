@@ -1,4 +1,4 @@
-package scutcms.authentication;
+package scutcms.authentication.Enum;
 
 /**
  * Created by anjouker on 16-6-17.
