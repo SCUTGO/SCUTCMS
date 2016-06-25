@@ -12,6 +12,19 @@ import static org.junit.Assert.*;
  */
 public class UserMapperTest {
     @Test
+    public void insertUser() throws Exception {
+        User user=new User();
+        user.setUsername("password");
+        user.setPassword_md5("2222");
+        user.setSalt("122");
+        user.setReal_name("222");
+        user.setTelephone("222");
+        user.setToken("22");
+        user.setPassword("asdasdada");
+        userMapper.insertUser(user);
+    }
+
+    @Test
     public void getUserByUsername() throws Exception {
         User user=userMapper.getUserByUsername("14324");
         if(user!=null)
