@@ -8,7 +8,7 @@ import java.util.Random;
  */
 
 /**
- * @
+ *
  */
 public class TokenHelper {
     private static char TokenPre[] = {
@@ -19,6 +19,11 @@ public class TokenHelper {
             'N','O','P','Q','R','S','T','U','V','W','X','Y','Z'
     };
 
+    /**
+     * 生成一串指定长度的随机字符串，字符串范围包括A-Z,a-z,0-9
+     * @param length 字符串长度
+     * @return 生成的字符串
+     */
     public static String createRandomToken(int length){
         StringBuilder stringBuilder = new StringBuilder();
         Random random = new Random(System.currentTimeMillis());
