@@ -17,5 +17,7 @@
         <mapping resource="resources/User.hbm.xml" />
         <mapping resource="resources/Salary.hbm.xml"/>
         <mapping resource="resources/Employee.hbm.xml"/>
+        <mapping resource="resources/Procurement.hbm.xml"/>
+        <mapping resource="resources/Position.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

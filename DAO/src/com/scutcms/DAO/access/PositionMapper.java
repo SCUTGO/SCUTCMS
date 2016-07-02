@@ -1,6 +1,9 @@
 package com.scutcms.DAO.access;
 
 import com.scutcms.DAO.entity.Position;
+import com.scutcms.DAO.session.SessionFac;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 /**
  * Created by Administrator on 2016/6/19 0019.
@@ -11,7 +14,11 @@ public class PositionMapper{
 	 * @param position
 	 */
 	public void insert(Position position){
-
+		Session session= SessionFac.INSTANCE.getSession();
+		Transaction transaction=session.beginTransaction();
+		session.save(position);
+		transaction.commit();
+		session.close();
 	}
 
 	/**
@@ -19,7 +26,15 @@ public class PositionMapper{
 	 * @param position
 	 */
 	public void update(Position position){
-
+		Session session=SessionFac.INSTANCE.getSession();
+		Transaction transaction=session.beginTransaction();
+		Position oldposition=(Position) session.get(Position.class,position.getPositionName());
+		oldposition.setBaseSalary(position.getBaseSalary());
+		oldposition.setWageHourly(position.getWageHourly());
+		oldposition.setPunishment(position.getPunishment());
+		session.update(oldposition);
+		transaction.commit();
+		session.close();
 	}
 
 	/**
@@ -27,7 +42,12 @@ public class PositionMapper{
 	 * @param position
 	 */
 	public void delete(Position position){
-
+		Session session=SessionFac.INSTANCE.getSession();
+		Transaction transaction=session.beginTransaction();
+		Position oldposition=(Position) session.get(Position.class,position.getPositionName());
+		session.delete(oldposition);
+		transaction.commit();
+		session.close();
 	}
 
 	/**
@@ -35,7 +55,9 @@ public class PositionMapper{
 	 * @return 如果数据库中存在该职位信息，则返回职位的对象；否则返回null
 	 */
 	public Position getPositionByPositionName(String PositionName){
-		Position position=new Position();
+		Session session=SessionFac.INSTANCE.getSession();
+		Position position=(Position) session.get(Position.class,PositionName);
+		session.close();
 		return position;
 	}
 }
