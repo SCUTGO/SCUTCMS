@@ -33,32 +33,37 @@
   <div class="login-box-body">
     <p class="login-box-msg">欢迎登录食堂管理系统</p>
 
-    <form action="index.html" method="post">
+    <form id="login_form">
       <div class="form-group has-feedback">
-        <input type="account" class="form-control" placeholder="Account">
+        <input type="account" class="form-control" id="username" placeholder="账号">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">  
+        <input type="password" class="form-control" id="password" placeholder="密码">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span> 
+      </div>
+      <div>
+        <span>
+          <br/>
+        </span>
       </div>
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox icheck">
             <label>
-              <input type="checkbox"> Remember Me
+              <input type="checkbox">记住我
             </label>
           </div>
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+          <button type="submit" id="btn_submit" class="btn btn-primary btn-block btn-flat">登录</button>
         </div>
         <!-- /.col -->
       </div>
     </form>
 
-    <a href="#">忘记密码</a><br>
+    <span>忘记密码 请联系根管理员</span><br>
   </div>
   <!-- /.login-box-body -->
 </div>
@@ -70,6 +75,8 @@
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <!-- iCheck -->
 <script src="plugins/iCheck/icheck.min.js"></script>
+<!-- Login -->
+<script src="dist/js/login.js"></script>
 <script>
   $(function () {
     $('input').iCheck({
