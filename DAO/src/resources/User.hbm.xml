@@ -10,5 +10,6 @@
         <property name="token" column="TOKEN" />
         <property name="real_name" column="REAL_NAME" />
         <property name="telephone" column="TELEPHONE"/>
+        <property name="password" column="PASSWORD"/>
     </class>
 </hibernate-mapping>

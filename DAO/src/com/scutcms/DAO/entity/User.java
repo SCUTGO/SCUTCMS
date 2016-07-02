@@ -6,6 +6,7 @@ package com.scutcms.DAO.entity;
 public class User {
     private String username;
     private String password_md5;
+    private String password;
     private String salt;
     private String token;
     private String real_name;
@@ -57,5 +58,13 @@ public class User {
 
     public void setTelephone(String telephone) {
         this.telephone = telephone;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

@@ -30,6 +30,7 @@ public class UserMapper {
         Session session=SessionFac.INSTANCE.getSession();
         Transaction transaction=session.beginTransaction();
         User olduser=(User)session.get(User.class,user.getUsername());
+        olduser.setPassword(user.getPassword());
         olduser.setReal_name(user.getReal_name());
         olduser.setSalt(user.getSalt());
         olduser.setToken(user.getToken());
