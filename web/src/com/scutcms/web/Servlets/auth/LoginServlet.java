@@ -1,7 +1,7 @@
 package scutcms.web.Servlets.auth;
 
-import net.sf.json.JSONException;
-import net.sf.json.util.JSONStringer;
+import org.json.JSONException;
+import org.json.JSONStringer;
 import scutcms.authentication.Enum.*;
 import scutcms.authentication.Service.*;
 
@@ -29,6 +29,7 @@ import java.io.IOException;
  *      {<br>
  *          "result":result<br>
  *      }<br>
+ *  result: 0(成功),1(用户名不存在),2(密码不存在),3(其他)
  *  @see javax.servlet.http.HttpServlet
  */
 
@@ -48,15 +49,30 @@ public class LoginServlet extends HttpServlet {
 
         String username=request.getParameter("username");
         String password=request.getParameter("password");
-        LoginResult result=userService.login(username,password);
+        LoginResult state=userService.login(username,password);
         JSONStringer stringer=new JSONStringer();
+        int result=3;
+        switch (state){
+            case SUCCESS:
+                result=0;
+                break;
+            case USERNAME_NO_VALID:
+                result=1;
+                break;
+            case PASSWORD_NO_MATCH:
+                result=2;
+                break;
+            case OTHER:
+                result=3;
+                break;
+        }
 
-        if(result==LoginResult.SUCCESS){
+        if(state==LoginResult.SUCCESS){
             tokenService.createTokenforUser(username);
         }
         try{
             stringer.array();
-            stringer.object().key("result").value(request);
+            stringer.object().key("result").value(result);
             stringer.endArray();
         }catch (JSONException e){
             e.printStackTrace();
