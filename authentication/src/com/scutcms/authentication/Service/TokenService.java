@@ -1,20 +1,32 @@
 package scutcms.authentication.Service;
 
+import com.scutcms.DAO.access.UserMapper;
+import com.scutcms.DAO.entity.User;
+import scutcms.util.TokenHelper;
+
 /**
  * Created by anjouker on 16-6-17.
  */
 public class TokenService {
-    TokenService(){
-
+    private UserMapper userMapper;
+    public TokenService(){
+        userMapper = new UserMapper();
     }
 
     /**
-     * 为指定用户创建一个token
+     * 为指定用户创建一个token,并且会将该token持久化到数据库
      * @param username 用户名
-     * @return token值
+     * @return 如果用户名合法则返回token值，不合法则返回null
      */
     public String createTokenforUser(String username){
-
+        String token = TokenHelper.createRandomToken(32);
+        User user = userMapper.getUserByUsername(username);
+        if(user == null){
+            return null;
+        }else{
+            user.setToken(token);
+            userMapper.updateUser(user);
+        }
     }
 
     /**
@@ -24,7 +36,12 @@ public class TokenService {
      * @return 如果参数token与用户匹配则返回true，否则返回false
      */
     public boolean isTokenValidforUser(String username, String token){
-
+        User user = userMapper.getUserByUsername(username);
+        if (user == null){
+            return false;
+        }else{
+            return user.getToken().equalsIgnoreCase(token);
+        }
     }
 
     /**
@@ -33,7 +50,7 @@ public class TokenService {
      * @return token值
      */
     public String createTokenforDevice(String deviceId){
-
+        return null;
     }
 
     /**
@@ -43,7 +60,7 @@ public class TokenService {
      * @return 如果参数token与设备匹配则返回true，否则返回false
      */
     public boolean isTokenValidforDevice(String deviceId, String token){
-
+        return false;
     }
 
 }
