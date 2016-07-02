@@ -17,7 +17,7 @@ import java.io.IOException;
  */
 
 /**
- *  Decription:登录<br>
+ *  Description:登录<br>
  *      返回用户登录信息
  *  request<br>
  *  {<br>
@@ -27,9 +27,11 @@ import java.io.IOException;
  *
  *  response<br>
  *      {<br>
- *          "result":result<br>
+ *          "result":result,<br>
+ *          "token":token<br>
  *      }<br>
- *  result: 0(成功),1(用户名不存在),2(密码不存在),3(其他)
+ *  result(int): 0(成功),1(用户名不存在),2(密码不存在),3(其他)<br>
+ *
  *  @see javax.servlet.http.HttpServlet
  */
 
@@ -68,7 +70,8 @@ public class LoginServlet extends HttpServlet {
         }
 
         if(state==LoginResult.SUCCESS){
-            tokenService.createTokenforUser(username);
+            String token=tokenService.createTokenforUser(username);
+            stringer.key("token").value(token);
         }
         try{
             stringer.array();
